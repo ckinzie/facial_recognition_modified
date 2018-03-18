@@ -1,21 +1,16 @@
 <request a node>
 
 //create an environment
-module add anaconda3/<your_version_here> //i used 3.4
+module add anaconda/<your_version_here> //i used 4.3.0
 conda create -n <your_env_name> python=<your_version> //i used the most recent version
 source activate <your_env_name>
 
 //install all the libraries needed to run the program. note that some of these are installed with pip since conda install doesn't play well on multi-user environments. 
-conda install -c conda-forge keras
-conda install -c conda-forge tensorflow
-conda install -c anaconda pandas
-conda install -c anaconda numpy
-conda install -c anaconda h5py
-conda install -c conda-forge statistics
-//does not seem to work: conda install -c conda-forge opencv
-//try this instead:
+pip install <program>==<version_number>
 pip install opencv-python
-pip install mkl-service
+pip install mkl
+conda install pillow
+
 
 //when you're done, to log out:
 source deactivate
