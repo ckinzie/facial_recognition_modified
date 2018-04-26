@@ -15,9 +15,12 @@ from utils.datasets import DataManager
 from utils.datasets import split_data
 from utils.preprocessor import preprocess_input
 
+#from keras.utils import multi_gpu_model #added this line
+with tf.device('/gpu:' + str(g)):
+
 # parameters
 batch_size = 32
-num_epochs = 10000
+num_epochs = 1
 input_shape = (64, 64, 1)
 validation_split = .2
 verbose = 1
@@ -41,6 +44,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 model.summary()
 
+model = multi_gpu_model(model, gpus=2) #added this line
 
 datasets = ['fer2013']
 for dataset_name in datasets:
