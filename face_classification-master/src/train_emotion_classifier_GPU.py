@@ -44,7 +44,6 @@ model.compile(optimizer='adam', loss='categorical_crossentropy',
 model.summary()
 model = multi_gpu_model(model, gpus=2)
 
-
 datasets = ['fer2013']
 for dataset_name in datasets:
     print('Training dataset:', dataset_name)

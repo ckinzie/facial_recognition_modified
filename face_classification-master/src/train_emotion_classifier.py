@@ -16,7 +16,6 @@ from utils.datasets import split_data
 from utils.preprocessor import preprocess_input
 
 #from keras.utils import multi_gpu_model #added this line
-with tf.device('/gpu:' + str(g)):
 
 # parameters
 batch_size = 32
